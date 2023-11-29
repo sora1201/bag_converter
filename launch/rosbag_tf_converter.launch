@@ -1,0 +1,17 @@
+<launch>
+    <arg name="bag_dir" default="$(find bag_converter)/bag"/>
+    <arg name="bag_name" default="forward"/>
+    <arg name="target_frame" default="agv/map"/>
+    <arg name="source_frame" default="agv/base_link"/>
+    <arg name="export_topic_name" default="pose"/>
+
+    <node name="tf_converter" pkg="bag_converter" type="tf_converter">
+        <param name="target_frame" value="$(arg target_frame)"/>
+        <param name="source_frame" value="$(arg source_frame)"/>
+        <param name="export_topic_name" value="$(arg export_topic_name)"/>
+    </node>
+
+    <node name="rosbag_play" pkg="rosbag" type="play" args="$(arg bag_dir)/$(arg bag_name).bag"/>
+
+    <node name="rosbag_record" pkg="rosbag" type="record" args="-a -O $(arg bag_dir)/_$(arg bag_name)"/>
+</launch>
