@@ -23,7 +23,7 @@ git clone https://github.com/iidalab/Your-Repository-Name.git
 <!-- 使用方法 -->
 ## Usage
   1. put bag file in bag_converter/bag
-  2. run `roslaunch bag_converter rosbag_tf_converter.launch bag_name:=abc target_frame:=/map source_frame:=/base_link export_topic_name:=pose` if you want to convert tf to pose(std_msgs::Float32MultiArray).
+  2. run `roslaunch bag_converter rosbag_tf_converter.launch bag_name:=abc target_frame:=map source_frame:=base_link export_topic_name:=pose` if you want to convert tf to pose(std_msgs::Float32MultiArray).
   3. run `roscd bag_converter && . to_csv.sh bag_file_name /pose` if you want to convert .bag file to .csv file.
 
 
